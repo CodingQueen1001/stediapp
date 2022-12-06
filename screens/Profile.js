@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View, Image, SafeAreaView , Share, ScrollView, Button, Touchable, TouchableOpacity, CameraRoll} from 'react-native';
+import { StyleSheet, Text, View, Image, SafeAreaView , Share, ScrollView, Button, Touchable, TouchableOpacity, CameraRoll, SafeAreaView} from 'react-native';
 import { Card, CardTitle, CardContent} from 'react-native-material-cards';
 import BarChart from 'react-native-bar-chart';
 import AsyncStorage from '@react-native-async-storage/async-storage';
