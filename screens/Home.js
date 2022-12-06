@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { StyleSheet, Text, SafeAreaView,  View, ScrollView, Linking, SafeAreaView} from 'react-native';
+import { StyleSheet, Text, SafeAreaView,  View, ScrollView, Linking} from 'react-native';
 import {FontAwesome5} from '@expo/vector-icons';
 import quotes from '../data/quote.json';
 import { Card, CardTitle, CardContent} from 'react-native-material-cards';
