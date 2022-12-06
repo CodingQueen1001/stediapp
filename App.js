@@ -1,5 +1,5 @@
 import React, { useEffect, useState, } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, AsyncStorage, Alert } from 'react-native';
+import { StyleSheet, Text, View, Image, TouchableOpacity, Alert } from 'react-native';
 import  Navigation from './components/Navigation';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnboardingScreen from './screens/OnboardingScreen';
@@ -113,20 +113,55 @@ return(
 
 
             if (loginResponse.status == 200){
-              const session
+              const sessionToken = await loginResponse.text();
+              await AsyncStorage.setItem('sessionToken', sessionToken);
+              console.log('Session Token', sessionToken)
+
+
+
+
+              setIsLoggedIn(true);
             }
-          }
-          }
-          
-         
-
-
-
-    
+            else{
+              console.log('response status',loginResponse.status);
+              Alert.alert('Invalid', 'An invalid code was entered.')
+              setIsLoggedIn(false);
+            }
+          }}
+        />
       </View>
     )
   }
-    </Navigation>
-  }
-
 }
+  export default App;
+
+
+  const Styles = Stylesheet.create({
+    container:{
+        flex:1,
+        alignitems:'center',
+        justifyContent: 'center'
+    },
+    input: {
+      height: 40,
+      margin: 12,
+      borderwidth: 1,
+      padding: 10,
+      marginTop:100
+    },
+    input2: {
+      height: 40,
+      margin: 12,
+      borderwidth: 1,
+      padding: 10,
+      marginTop:100
+    },
+    margin:{
+      marginTop:100
+    },
+    button: {
+      alignItems: "center",
+      backgroundColor: "#DDDDDD",
+      padding: 10
+    }
+  })
