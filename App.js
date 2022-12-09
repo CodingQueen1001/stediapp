@@ -1,5 +1,5 @@
 import React, { useEffect, useState, } from 'react';
-import { StyleSheet, Text, View, Image, TouchableOpacity, Alert } from 'react-native';
+import {StyleSheet, Text, View, Image, TouchableOpacity, Alert } from 'react-native';
 import  Navigation from './components/Navigation';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import OnboardingScreen from './screens/OnboardingScreen';
@@ -7,7 +7,6 @@ import Home from './screens/Home';
 import { NavigationContainer } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Button, TextInput } from 'react-native-paper';
-
 
 
 const AppStack = createNativeStackNavigator();
@@ -20,7 +19,7 @@ const App = () =>{
   const [tempCode, setTempCode] = React.useState(null);
 
   useEffect(()=>{
-    const getSessionTOken = async() => {
+    const getSessionToken = async() => {
       const sessionToken = await AsyncStorage.getItem('sessionToken');
       console.log('token from storage', sessionToken)
 
@@ -39,7 +38,7 @@ const App = () =>{
 
    if (isFirstLaunch == true &&! isLoggedIn){
 return(
-  <onBoardingScreen setFirstLaunch={setFirstLaunch}/>
+  <OnboardingScreen setFirstLaunch={setFirstLaunch}/>
 
 );
   }else if(isLoggedIn){
@@ -136,7 +135,7 @@ return(
   export default App;
 
 
-  const Styles = Stylesheet.create({
+  const styles = StyleSheet.create({
     container:{
         flex:1,
         alignitems:'center',
