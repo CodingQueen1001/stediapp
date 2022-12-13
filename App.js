@@ -1,4 +1,4 @@
-import React, { useEffect, useState, } from 'react';
+import React, { useEffect, useState } from 'react';
 import {StyleSheet, Text, View, Image, TouchableOpacity, Alert } from 'react-native';
 import  Navigation from './components/Navigation';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -27,7 +27,7 @@ const App = () =>{
 
       if(validateResponse.status == 200){
         const userEmail = await validateResponse.text();
-        await AsyncStorage.setItem('userEmail',userEmail)
+        await AsyncStorage.setItem('userEmail' + userEmail)
         console.log('userEmail', userEmail);
         setIsLoggedIn(true);
       }
