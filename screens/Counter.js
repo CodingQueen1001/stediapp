@@ -111,7 +111,7 @@ await fetch('https://dev.stedi.me/rapidsteptest',{
    'suresteps.session.token': token.current
   },
   body:JSON.stringify({
-customer:UserName.current,
+customer: userName.current,
 startTime: startTime.current,
 stepPoints,
 stopTime: stopTime.current,
@@ -130,7 +130,7 @@ totalSteps:30
 const getResults = async () =>{
 
 try{
-  const scoreResponse = await fetch('https://dev.stedi.me/riskscore/rom19010@byui.edu',{
+  const scoreResponse = await fetch('https://dev.stedi.me/riskscore/'+userName.current,{
   method:'GET',
   headers:{
     'Content-Type': 'application/json',
